@@ -1,0 +1,41 @@
+.container {
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/images/bg.jpg') no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 100% 100%;
+}
+.container .form{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+.container .form .form-form  {
+    margin-left: -45px;
+}
+.container .form .form-control {
+    padding: 10px 0;
+}
+.container .form .form-control label {
+    width: 60px;
+    text-align: right;
+    display: inline-block;
+}
+.container .form input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    width: 200px;
+}
+.container .form .register {
+    color: red;
+    font-size: 16px;
+    padding: 5px 0;
+    cursor: pointer;
+}

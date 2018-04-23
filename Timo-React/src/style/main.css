@@ -1,0 +1,48 @@
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+}
+input , button{
+    outline: none;
+}
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px white inset !important;
+}
+a{
+    cursor: pointer;
+}
+/*
+*公共css
+*/
+.text-center {
+    text-align: center;
+}
+.clearFix:after {
+    display: table;
+    content: '';
+    clear: both;
+}
+.btn {
+    padding: 5px 60px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.btn-info {
+    background-color: green;
+}
+.btn-warn {
+    background-color: yellow;
+}
+.btn-success {
+    background-color: #79d43c;
+}
+.btn-error {
+    background-color: red;
+}
