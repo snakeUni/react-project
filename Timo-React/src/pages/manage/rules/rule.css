@@ -1,0 +1,13 @@
+.rule {
+    padding: 20px;
+}
+.rule .rule-content p {
+    text-indent: 30px;
+    padding: 5px 0;
+}
+.rule .rule-reward img {
+    vertical-align: middle;
+}
+.rule .rule-reward p {
+    text-indent: 30px;
+}

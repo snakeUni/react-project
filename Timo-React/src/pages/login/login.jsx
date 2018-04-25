@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Route, Redirect, BrowserRouter, Router} from 'react-router-dom'
 import './login.css'
 import '../../style/main.css'
 
@@ -13,11 +12,15 @@ class Login extends Component {
             isLogin: true,
             hide: false
         };
+        //用户自动获取焦点
+        this.textInput = React.createRef();
+        
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
         this.handleChangeVertifyPassword = this.handleChangeVertifyPassword.bind(this);
         this.changeLogin = this.changeLogin.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
     }
     handleChangeUsername(event) {
         this.setState({username: event.target.value});
@@ -34,6 +37,9 @@ class Login extends Component {
     handleSubmit(event) {
         event.preventDefault();
     }
+    componentDidMount() {
+        this.textInput.current.focus();
+    }
     render() {
         const isLogin = this.state.isLogin;
         let formData = null;
@@ -41,7 +47,8 @@ class Login extends Component {
             formData = <div className="form-form">
                             <div className="form-control">
                                 <label htmlFor="username">用户名:</label>
-                                <input type="text" id="username" value={this.state.username} onChange={this.handleChangeUsername}/>
+                                <input type="text" id="username" value={this.state.username} onChange={this.handleChangeUsername}
+                                ref={this.textInput}/>
                             </div>
                             <div className="form-control">
                                 <label htmlFor="password">密码:</label>
