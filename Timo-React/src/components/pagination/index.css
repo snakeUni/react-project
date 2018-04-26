@@ -1,0 +1,29 @@
+.pagination .timo-pagination:after {
+    content: "";
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.pagination .timo-pagination-item {
+    display: inline-block;
+    vertical-align: middle;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    min-width: 32px;
+    text-align: center;
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+}
+.pagination .timo-pagination-item:hover {
+    color: #94ad98;
+    border-color: #94ad98;
+}
+.pagination .timo-pagination-item.selected {
+    color: #94ad98;
+    border-color: #94ad98;
+}
