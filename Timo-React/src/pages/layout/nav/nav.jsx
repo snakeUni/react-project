@@ -16,7 +16,7 @@ class TimoNav extends Component {
                 }]
             },{
                 name: '记录',
-                imgPath: require('../../../assets/svg/blink.svg'),
+                imgPath: require('../../../assets/svg/record.svg'),
                 children: [{
                     name: '所有记录',
                     to: '/mint/record',
@@ -28,7 +28,7 @@ class TimoNav extends Component {
                 }]
             },{
                 name: '奖品',
-                imgPath: require('../../../assets/svg/blink.svg'),
+                imgPath: require('../../../assets/svg/reward.svg'),
                 children: [{
                     name: '所有奖品',
                     to: '/mint/allreward',

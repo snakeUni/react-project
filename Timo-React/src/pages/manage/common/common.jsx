@@ -3,6 +3,7 @@ import {Route, Redirect, BrowserRouter, Router, Switch} from 'react-router-dom'
 import TimoHeader from '../../layout/header/header'
 import TimoNav from '../../layout/nav/nav'
 import Rule from '../rules/rule'
+import Record from '../record/index'
 import './common.css'
 
 class MainContent extends Component {
@@ -14,11 +15,12 @@ class MainContent extends Component {
         const path = this.props.location.pathname.split('/')[2];
         return (
             <div className="main">
-                <TimoHeader></TimoHeader>
+                <TimoHeader title="小薄荷奖惩"></TimoHeader>
                 <TimoNav path={path}></TimoNav>
                 <div className="content">
                     <Switch>
                         <Route path={`${this.props.match.path}/rule`} component={Rule} />
+                        <Route path={`${this.props.match.path}/record`} component={Record} />
                     </Switch>
                 </div>
             </div>

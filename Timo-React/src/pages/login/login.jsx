@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TimoAlert from '../../components/Alert/Alert'
 import './login.css'
 import '../../style/main.css'
 
@@ -32,10 +33,27 @@ class Login extends Component {
         this.setState({vertifypassword: event.target.value});
     }
     changeLogin() {
-        this.setState({isLogin: false, hide: true});
+        this.setState({isLogin: false});
     }
     handleSubmit(event) {
         event.preventDefault();
+        if(this.isNotNull()) {
+
+        } else {
+            this.setState({hide: true})
+        }    
+    }
+    isNotNull() {
+        if(!!this.state.username && !!this.state.password) {
+            return true;
+        }
+        return false;
+    }
+    handleCancel() {
+        console.log("取消")
+    }
+    handleSure() {
+        console.log("确定")
     }
     componentDidMount() {
         this.textInput.current.focus();
@@ -84,6 +102,8 @@ class Login extends Component {
                         }
                     </form>
                 </div>
+                {this.state.hide ? <TimoAlert content="这是标题" close="取消" vertify="确定" 
+                cancel={this.handleCancel} sure={this.handleSure}/> : null}   
             </div>
         )
     }
