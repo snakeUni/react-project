@@ -1,0 +1,39 @@
+.timo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0,0,0, 0.6);
+}
+.timo-modal .timo-alert {
+    z-index: 3;
+    background-color: #fff;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+.timo-modal .timo-alert .alert-content {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.timo-modal .timo-alert .alert-foot button {
+    padding: 5px 25px !important;
+}
+.timo-modal .timo-alert .alert-foot {
+    padding: 10px;
+}
+.timo-modal .timo-alert .alert-foot button:last-child {
+    margin-left: 120px;
+}
+@keyframes fade {
+    from {top: 0}
+    to {top: 40%};
+}
+.alert-fade {
+    animation: fade 1s;   
+}
