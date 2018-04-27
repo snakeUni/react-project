@@ -60,7 +60,9 @@ class Record extends Component {
         return (
             <div className="record">
                 <TimoTable columns={this.state.columns} dataSource={this.state.dataSource}/>
-                <TimoPagination total={50} visibilityPages={10} onChange={this.handleChange} />
+                <div className="record-pagination">
+                    <TimoPagination total={50} visibilityPages={10} onChange={this.handleChange} />
+                </div>    
             </div>
         )
     }

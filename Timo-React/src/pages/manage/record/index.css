@@ -1,3 +1,6 @@
 .record {
     padding: 20px;
 }
+.record .record-pagination {
+    margin-top: 100px;
+}

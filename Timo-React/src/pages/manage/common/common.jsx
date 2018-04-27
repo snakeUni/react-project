@@ -4,6 +4,7 @@ import TimoHeader from '../../layout/header/header'
 import TimoNav from '../../layout/nav/nav'
 import Rule from '../rules/rule'
 import Record from '../record/index'
+import AddRecord from '../addrecord/index'
 import './common.css'
 
 class MainContent extends Component {
@@ -21,6 +22,7 @@ class MainContent extends Component {
                     <Switch>
                         <Route path={`${this.props.match.path}/rule`} component={Rule} />
                         <Route path={`${this.props.match.path}/record`} component={Record} />
+                        <Route path={`${this.props.match.path}/addrecord`} component={AddRecord} />
                     </Switch>
                 </div>
             </div>
