@@ -1,0 +1,18 @@
+.reward-item {
+    float: left;
+    width: 33.3%;
+    box-sizing: border-box;
+    padding: 10px;
+    cursor: pointer;
+}
+.reward-item:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.reward-item .reward-item-img img {
+    width: 200px;
+    height: 200px;
+}
+.reward-item .reward-item-remain .remain-number {
+    color: red;
+    font-size: 20px;
+}

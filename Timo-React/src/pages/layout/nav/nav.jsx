@@ -37,10 +37,6 @@ class TimoNav extends Component {
                     name: '兑换记录',
                     to: '/mint/rewardrecord',
                     key: 'rewardrecord'
-                },{
-                    name: '兑换奖品',
-                    to: '/mint/getreward',
-                    key: 'getreward'
                 }]
             }],
             temporary: null

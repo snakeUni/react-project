@@ -46,3 +46,8 @@ a{
 .btn-error {
     background-color: red;
 }
+.clearFix:after {
+    display: block;
+    content: '';
+    clear: both;
+}

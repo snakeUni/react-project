@@ -5,7 +5,7 @@
     right: 0;
     bottom: 0;
     height: 100%;
-    z-index: 2;
+    z-index: 200;
     background-color: rgba(0,0,0, 0.6);
 }
 .timo-modal .timo-alert {

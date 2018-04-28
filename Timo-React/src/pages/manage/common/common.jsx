@@ -5,6 +5,8 @@ import TimoNav from '../../layout/nav/nav'
 import Rule from '../rules/rule'
 import Record from '../record/index'
 import AddRecord from '../addrecord/index'
+import AllReward from '../allreward/allreward'
+import RewardRecord from '../rewardrecord/index'
 import './common.css'
 
 class MainContent extends Component {
@@ -23,6 +25,8 @@ class MainContent extends Component {
                         <Route path={`${this.props.match.path}/rule`} component={Rule} />
                         <Route path={`${this.props.match.path}/record`} component={Record} />
                         <Route path={`${this.props.match.path}/addrecord`} component={AddRecord} />
+                        <Route path={`${this.props.match.path}/allreward`} component={AllReward} />
+                        <Route path={`${this.props.match.path}/rewardrecord`} component={RewardRecord} />
                     </Switch>
                 </div>
             </div>
