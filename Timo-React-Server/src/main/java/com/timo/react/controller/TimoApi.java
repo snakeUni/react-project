@@ -1,16 +1,16 @@
 package com.timo.react.controller;
 
+import com.timo.react.domain.TimoDayRecord;
 import com.timo.react.pojo.TimoDayRecordPojo;
+import com.timo.react.pojo.TimoRewardPojo;
+import com.timo.react.pojo.TimoRewardRecordPojo;
 import com.timo.react.service.TimoDayRecordService;
 import com.timo.react.service.TimoRewardRecordService;
 import com.timo.react.service.TimoRewardService;
 import com.timo.react.utils.response.GetResponse;
 import com.timo.react.utils.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -23,16 +23,71 @@ import java.util.List;
 public class TimoApi {
 
     @Autowired
-    private TimoDayRecordService timoDayRecordService;
-    @Autowired
     private TimoRewardRecordService timoRewardRecordService;
     @Autowired
     private TimoRewardService timoRewardService;
+    @Autowired
+    private TimoDayRecordService timoDayRecordService;
 
+    /**
+     * 获取每天记录api
+     * @param request
+     * @param userId
+     * @return
+     */
     @RequestMapping(value = "getdayrecord", method = RequestMethod.GET)
     public Response getDayRecord(HttpServletRequest request,
                                  @RequestParam(name = "userId") Long userId) {
         List<TimoDayRecordPojo> list = timoDayRecordService.getRecordsByUserId(userId);
+        return new GetResponse("result", list);
+    }
+
+    /**
+     * 增加每日记录api
+     * @param request
+     * @param timoDayRecordPojo
+     * @return
+     */
+    @RequestMapping(value = "adddayrecord", method = RequestMethod.POST)
+    public Response addDayRecord(HttpServletRequest request,
+                                 @RequestBody TimoDayRecordPojo timoDayRecordPojo) {
+        TimoDayRecord timoDayRecord = new TimoDayRecord();
+        timoDayRecord.setHappy(timoDayRecordPojo.getHappy());
+        timoDayRecord.setOther(timoDayRecordPojo.getOther());
+        timoDayRecord.setPrimaryStar(timoDayRecordPojo.getPrimaryStar());
+        timoDayRecord.setRewardOther(timoDayRecordPojo.getRewardOther());
+        timoDayRecord.setSleep(timoDayRecordPojo.getSleep());
+        timoDayRecord.setStudy(timoDayRecordPojo.getStudy());
+        timoDayRecord.setUserId(timoDayRecordPojo.getUserId());
+        TimoDayRecord timoDayRecord1 =  timoDayRecordService.saveRecord(timoDayRecord);
+        if(timoDayRecord1 != null) {
+            return new GetResponse("result", "success");
+        } else {
+            return new GetResponse("result", "fail");
+        }
+    }
+
+    /**
+     * 获取所有奖品信息api
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "getRewards", method = RequestMethod.GET)
+    public Response getRewards(HttpServletRequest request) {
+        List<TimoRewardPojo> list = timoRewardService.getRewards();
+        return new GetResponse("result", list);
+    }
+
+    /**
+     * 获取兑换奖品信息api
+     * @param request
+     * @param userId
+     * @return
+     */
+    @RequestMapping(value = "getRewardRecords", method = RequestMethod.GET)
+    public Response getRewardRecords(HttpServletRequest request,
+                                     @RequestParam(name = "userId") Long userId) {
+        List<TimoRewardRecordPojo> list = timoRewardRecordService.getRewardRecordsByUserId(userId);
         return new GetResponse("result", list);
     }
 
