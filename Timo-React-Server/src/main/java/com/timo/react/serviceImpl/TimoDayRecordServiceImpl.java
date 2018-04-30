@@ -1,5 +1,6 @@
 package com.timo.react.serviceImpl;
 
+import com.timo.react.domain.TimoDayRecord;
 import com.timo.react.pojo.TimoDayRecordPojo;
 import com.timo.react.repository.TimoDayRecordRepo;
 import com.timo.react.service.TimoDayRecordService;
@@ -22,5 +23,11 @@ public class TimoDayRecordServiceImpl implements TimoDayRecordService{
     public List<TimoDayRecordPojo> getRecordsByUserId(Long userId) {
         return BeanMapper.mapList(timoDayRecordRepo.findByUserId(userId), TimoDayRecordPojo.class);
     }
+
+    @Override
+    public TimoDayRecord saveRecord(TimoDayRecord timoDayRecord) {
+        return timoDayRecordRepo.save(timoDayRecord);
+    }
+
 
 }
