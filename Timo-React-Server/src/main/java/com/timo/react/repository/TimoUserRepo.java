@@ -11,17 +11,17 @@ import org.springframework.stereotype.Repository;
 public interface TimoUserRepo extends JpaRepository<TimoUser, Long>{
 
     /**
-     * 根据userId查找
-     * @param userId
-     * @return
-     */
-    TimoUser findOne(Long userId);
-
-    /**
      * 根据手机号查询
      * @param tellphone
      * @return
      */
     TimoUser findByTellphone(String tellphone);
+
+    /**
+     * 根据用户名查找
+     * @param username
+     * @return
+     */
+    TimoUser findByUsername(String username);
 
 }
