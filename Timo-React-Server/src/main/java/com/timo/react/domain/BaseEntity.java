@@ -33,4 +33,8 @@ public abstract class BaseEntity implements Serializable{
 
     private String updatedByUsername;                     // 最后更新用户名称
 
+    public BaseEntity() {
+        this.createdTime = new Date();
+    }
+
 }
