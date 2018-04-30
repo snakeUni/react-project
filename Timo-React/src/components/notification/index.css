@@ -1,0 +1,23 @@
+.timo-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #93ac98;
+    z-index: 100;
+    padding: 10px;
+    max-width: 200px;
+    border-radius: 5px;
+}
+.timo-notification div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.timo-notification img {
+    vertical-align: middle;
+}
+.timo-notification span {
+    margin-left: 10px;
+}

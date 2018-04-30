@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TimoNotification from '../../../components/notification/index'
 import './rule.css'
 
 class Rule extends Component {
@@ -67,6 +68,7 @@ class Rule extends Component {
                         <img src={require('../../../assets/svg/phone-apple.svg')} alt="苹果"/>
                     </p>                    
                 </div>
+                <TimoNotification type="success" content="这是成功的通知这是成功的通知这是成功" delay={5000}/>
             </div>
         )
     }
