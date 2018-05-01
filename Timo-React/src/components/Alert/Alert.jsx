@@ -2,25 +2,35 @@ import React, {Component} from 'react'
 import './alert.css'
 
 class AlertBox extends Component {
+
+    static defaultProps = {
+        width: 520,
+        cancle: '取消',
+        ok: '确认'
+    }
+
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-        this.handleVertify = this.handleVertify.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
+        this.handleOK = this.handleOK.bind(this);
     }
-    handleClick() {
-        if(this.props.cancel){
-            this.props.cancel();
+
+    handleCancel() {
+        const onCancel = this.props.onCancel;
+        if(onCancel){
+            onCancel();
         }
     }
-    handleVertify() {
-        if(this.props.sure) {
-            this.props.sure();
+    handleOK() {
+        const onOK = this.props.onOK;
+        if(onOK) {
+            onOK();
         }
     }
     render() {
         return (
             <div className="timo-modal">
-                <div className="timo-alert alert-fade">
+                <div className="timo-alert alert-fade" style={{width:this.props.width}}>
                     <div className="alert-content">
                         {this.props.content}
                     </div>
@@ -29,8 +39,8 @@ class AlertBox extends Component {
                     </div>
                     <div className="alert-foot">
                         <div>
-                            <button className="" onClick={this.handleClick}>{this.props.close}</button>
-                            <button className="" onClick={this.handleVertify}>{this.props.vertify}</button>
+                            <button className="cancel" onClick={this.handleCancel}>{this.props.cancle}</button>
+                            <button className="ok" onClick={this.handleOK}>{this.props.ok}</button>
                         </div>
                     </div>
                 </div>

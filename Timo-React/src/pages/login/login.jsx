@@ -102,8 +102,7 @@ class Login extends Component {
                         }
                     </form>
                 </div>
-                {this.state.hide ? <TimoAlert content="这是标题" close="取消" vertify="确定" 
-                cancel={this.handleCancel} sure={this.handleSure}><p>这是内容</p></TimoAlert> : null}   
+                {this.state.hide ? <TimoAlert content="这是标题" onCancel={this.handleCancel} onOK={this.handleSure}><p>这是内容</p></TimoAlert> : null}   
             </div>
         )
     }

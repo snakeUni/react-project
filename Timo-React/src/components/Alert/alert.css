@@ -16,7 +16,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    width: 520px;
 }
 .timo-modal .timo-alert .alert-content {
     padding: 16px 24px;
@@ -32,7 +31,20 @@
     padding: 10px 16px;
 }
 .timo-modal .timo-alert .alert-foot button {
-    padding: 5px 25px !important;
+    padding: 8px 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.timo-modal .timo-alert .alert-foot .cancel:hover {
+    color: #1585ff;
+    border-color: #1585ff;
+}
+.timo-modal .timo-alert .alert-foot .ok {
+    background-color: #1585ff;
+    color: #fff;
+    margin-left: 10px;
 }
 .timo-modal .timo-alert .alert-foot {
     padding: 10px;
