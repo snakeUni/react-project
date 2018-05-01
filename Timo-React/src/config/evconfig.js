@@ -1,8 +1,7 @@
 /**
  * 全局配置文件
  */
-let baseURL; 
-let imgUrl = '//cangdu.org:8001/img/';
+let baseURL;
 if(process.env.NODE_ENV === 'development'){
   baseURL = '/api/timo';
 }else{
@@ -10,4 +9,4 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 
-export default {imgUrl, baseURL}
+export default {baseURL}

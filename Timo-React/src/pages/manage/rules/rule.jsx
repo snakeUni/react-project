@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import TimoNotification from '../../../components/notification/index'
+import TimoApi from '../../../api/api'
 import './rule.css'
 
 class Rule extends Component {
     constructor(props) {
         super(props);
+    }
+    componentWillMount() {
+        
     }
     render() {
         return(
