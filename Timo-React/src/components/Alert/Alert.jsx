@@ -21,12 +21,17 @@ class AlertBox extends Component {
         return (
             <div className="timo-modal">
                 <div className="timo-alert alert-fade">
-                    <div className="alert-content text-center">
+                    <div className="alert-content">
                         {this.props.content}
                     </div>
+                    <div className="timo-modal-content">
+                        {this.props.children}
+                    </div>
                     <div className="alert-foot">
-                        <button className="btn btn-error" onClick={this.handleClick}>{this.props.close}</button>
-                        <button className="btn btn-info" onClick={this.handleVertify}>{this.props.vertify}</button>
+                        <div>
+                            <button className="" onClick={this.handleClick}>{this.props.close}</button>
+                            <button className="" onClick={this.handleVertify}>{this.props.vertify}</button>
+                        </div>
                     </div>
                 </div>
             </div>     
