@@ -1,5 +1,6 @@
 package com.timo.react.service;
 
+import com.timo.react.domain.TimoUser;
 import com.timo.react.pojo.TimoUserPojo;
 
 /**
@@ -27,5 +28,13 @@ public interface TimoUserService {
      * @return
      */
     TimoUserPojo getUserByUsername(String username);
+
+    /**
+     * 通过用户名密码查找
+     * @param username
+     * @param password
+     * @return
+     */
+    TimoUser getUserByUsernameAndPassword(String username, String password);
 
 }

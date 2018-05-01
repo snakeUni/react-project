@@ -24,4 +24,12 @@ public interface TimoUserRepo extends JpaRepository<TimoUser, Long>{
      */
     TimoUser findByUsername(String username);
 
+    /**
+     * 根据用户名密码查询
+     * @param username
+     * @param password
+     * @return
+     */
+    TimoUser findByUsernameAndPassword(String username, String password);
+
 }

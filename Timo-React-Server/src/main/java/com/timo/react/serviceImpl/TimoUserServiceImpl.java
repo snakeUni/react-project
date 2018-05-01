@@ -1,5 +1,6 @@
 package com.timo.react.serviceImpl;
 
+import com.timo.react.domain.TimoUser;
 import com.timo.react.pojo.TimoUserPojo;
 import com.timo.react.repository.TimoUserRepo;
 import com.timo.react.service.TimoUserService;
@@ -29,6 +30,11 @@ public class TimoUserServiceImpl implements TimoUserService {
     @Override
     public TimoUserPojo getUserByUsername(String username) {
         return BeanMapper.map(timoUserRepo.findByUsername(username), TimoUserPojo.class);
+    }
+
+    @Override
+    public TimoUser getUserByUsernameAndPassword(String username, String password) {
+        return timoUserRepo.findByUsernameAndPassword(username, password);
     }
 
 }

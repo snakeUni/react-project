@@ -1,12 +1,15 @@
 package com.timo.react.controller;
 
 import com.timo.react.domain.TimoDayRecord;
+import com.timo.react.domain.TimoUser;
 import com.timo.react.pojo.TimoDayRecordPojo;
 import com.timo.react.pojo.TimoRewardPojo;
 import com.timo.react.pojo.TimoRewardRecordPojo;
+import com.timo.react.pojo.TimoUserPojo;
 import com.timo.react.service.TimoDayRecordService;
 import com.timo.react.service.TimoRewardRecordService;
 import com.timo.react.service.TimoRewardService;
+import com.timo.react.service.TimoUserService;
 import com.timo.react.utils.response.GetResponse;
 import com.timo.react.utils.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,8 @@ public class TimoApi {
     private TimoRewardService timoRewardService;
     @Autowired
     private TimoDayRecordService timoDayRecordService;
+    @Autowired
+    private TimoUserService timoUserService;
 
     /**
      * 获取每天记录api
@@ -91,4 +96,20 @@ public class TimoApi {
         return new GetResponse("result", list);
     }
 
+    /**
+     * 获取用户信息api
+     * @param request
+     * @param timoUserPojo
+     * @return
+     */
+    @RequestMapping(value = "getUserInfo", method = RequestMethod.POST)
+    public Response getUserInfo(HttpServletRequest request,
+                                @RequestBody TimoUserPojo timoUserPojo) {
+        TimoUser timoUser = timoUserService.getUserByUsernameAndPassword(timoUserPojo.getUsername(), timoUserPojo.getPassword());
+        if(timoUser != null) {
+            return new GetResponse("result", timoUser);
+        } else {
+            return new GetResponse("result", "");
+        }
+    }
 }
