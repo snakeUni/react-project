@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import './index.css'
 
 class Notification extends Component {
+    static defaultProps = {
+        type:'default'
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -21,9 +24,12 @@ class Notification extends Component {
             <div>
                 {this.state.isShow ? 
                 <div className="timo-notification">                   
-                    <div>
+                    <div className="timo-notification-head">
                         <img src={require(`../../assets/svg/notification/${this.props.type}.svg`)} alt={this.props.type} />
-                        <span>{this.props.content}</span>
+                        <span>{this.props.title}</span>
+                    </div>
+                    <div className="timo-notification-content">
+                        {this.props.content}
                     </div>     
                 </div> : null}
             </div>

@@ -68,7 +68,7 @@ class Rule extends Component {
                         <img src={require('../../../assets/svg/phone-apple.svg')} alt="苹果"/>
                     </p>                    
                 </div>
-                <TimoNotification type="success" content="这是成功的通知这是成功的通知这是成功" delay={5000}/>
+                <TimoNotification  title="这是标题" delay={5000} content="这是内容内容内容"/>
             </div>
         )
     }
