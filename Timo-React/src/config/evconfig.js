@@ -4,9 +4,9 @@
 let baseURL; 
 let imgUrl = '//cangdu.org:8001/img/';
 if(process.env.NODE_ENV === 'development'){
-  baseURL = '/timodev';
+  baseURL = '/api/timo';
 }else{
-  baseURL = '/timopro';
+  baseURL = '/api/timo';
 }
 
 
