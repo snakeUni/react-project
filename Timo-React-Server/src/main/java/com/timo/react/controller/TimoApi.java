@@ -2,14 +2,8 @@ package com.timo.react.controller;
 
 import com.timo.react.domain.TimoDayRecord;
 import com.timo.react.domain.TimoUser;
-import com.timo.react.pojo.TimoDayRecordPojo;
-import com.timo.react.pojo.TimoRewardPojo;
-import com.timo.react.pojo.TimoRewardRecordPojo;
-import com.timo.react.pojo.TimoUserPojo;
-import com.timo.react.service.TimoDayRecordService;
-import com.timo.react.service.TimoRewardRecordService;
-import com.timo.react.service.TimoRewardService;
-import com.timo.react.service.TimoUserService;
+import com.timo.react.pojo.*;
+import com.timo.react.service.*;
 import com.timo.react.utils.response.GetResponse;
 import com.timo.react.utils.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +27,8 @@ public class TimoApi {
     private TimoDayRecordService timoDayRecordService;
     @Autowired
     private TimoUserService timoUserService;
+    @Autowired
+    private TimoChannelService timoChannelService;
 
     /**
      * 获取每天记录api
@@ -111,5 +107,12 @@ public class TimoApi {
         } else {
             return new GetResponse("result", "");
         }
+    }
+
+    @RequestMapping(value = "getChannel", method = RequestMethod.GET)
+    public Response getChannel(HttpServletRequest request) {
+        String keyword = "root";
+        List<TimoChannelPojo> list = timoChannelService.getChannel(keyword);
+        return new GetResponse("result", list);
     }
 }
