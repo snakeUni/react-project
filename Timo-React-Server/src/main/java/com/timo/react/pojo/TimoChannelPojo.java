@@ -22,6 +22,4 @@ public class TimoChannelPojo extends BasePojo {
 
     private List<TimoChannelPojo> children;     //对应频道下的子频道
 
-    private TimoChannelPojo parent;
-
 }

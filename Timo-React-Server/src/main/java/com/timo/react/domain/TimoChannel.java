@@ -25,13 +25,13 @@ public class TimoChannel extends BaseEntity {
 
     private String imgPath;         //图片路径
 
-    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent", fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<TimoChannel> children;     //对应频道下的子频道
 
-    @JsonBackReference
     @ManyToOne()
     @JoinColumn(name = "parentId")
+    @JsonBackReference
     private TimoChannel parent;
 
 }
