@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Uni on 2018/4/30.
@@ -109,10 +111,40 @@ public class TimoApi {
         }
     }
 
+    /**
+     * 获取频道信息api
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "getChannel", method = RequestMethod.GET)
     public Response getChannel(HttpServletRequest request) {
         String keyword = "root";
         List<TimoChannelPojo> list = timoChannelService.getChannel(keyword);
         return new GetResponse("result", list);
+    }
+
+    /**
+     * 注册用户api
+     * @param request
+     * @param timoUserPojo
+     * @return
+     */
+    @RequestMapping(value = "userregister", method = RequestMethod.POST)
+    public Response registerUser(HttpServletRequest request,
+                                 @RequestBody TimoUserPojo timoUserPojo) {
+        TimoUserPojo timoUserPojo1 = timoUserService.getUserByUsername(timoUserPojo.getUsername());
+        Map map = new HashMap<>();
+        if(timoUserPojo1 != null) {
+            map.put("errorcode", "40001");
+            map.put("info", "用户名已存在");
+            return new GetResponse("result", map);
+        } else {
+            TimoUser timoUser = new TimoUser();
+            timoUser.setPassword(timoUserPojo.getPassword());
+            timoUser.setUsername(timoUserPojo.getUsername());
+            timoUser.setSex(1);
+            TimoUser timoUser1 = timoUserService.save(timoUser);
+            return new GetResponse("result", timoUser1);
+        }
     }
 }
