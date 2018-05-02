@@ -37,4 +37,11 @@ public interface TimoUserService {
      */
     TimoUser getUserByUsernameAndPassword(String username, String password);
 
+    /**
+     * 保存新的用户
+     * @param user
+     * @return
+     */
+    TimoUser save(TimoUser user);
+
 }

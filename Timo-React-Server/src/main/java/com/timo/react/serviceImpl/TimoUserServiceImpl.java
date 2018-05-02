@@ -37,4 +37,9 @@ public class TimoUserServiceImpl implements TimoUserService {
         return timoUserRepo.findByUsernameAndPassword(username, password);
     }
 
+    @Override
+    public TimoUser save(TimoUser user) {
+        return timoUserRepo.save(user);
+    }
+
 }
