@@ -51,6 +51,15 @@ class TimoApi extends TimoServer {
         let result = await this.axios('get', '/getRewardRecords', params);
         return result;
     }
+
+    /**
+     * 返回频道信息
+     * @param {*} params 
+     */
+    async getChannel(params = {}) {
+        let result = await this.axios('get', '/getChannel');
+        return result;
+    }
 }
 
 export default new TimoApi();
