@@ -132,7 +132,7 @@ public class TimoApi {
     @RequestMapping(value = "userregister", method = RequestMethod.POST)
     public Response registerUser(HttpServletRequest request,
                                  @RequestBody TimoUserPojo timoUserPojo) {
-        TimoUserPojo timoUserPojo1 = timoUserService.getUserByUsername(timoUserPojo.getUsername());
+        TimoUser timoUserPojo1 = timoUserService.getUserByUsername(timoUserPojo.getUsername());
         Map map = new HashMap<>();
         if(timoUserPojo1 != null) {
             map.put("errorcode", "40001");

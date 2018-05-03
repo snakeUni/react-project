@@ -28,8 +28,8 @@ public class TimoUserServiceImpl implements TimoUserService {
     }
 
     @Override
-    public TimoUserPojo getUserByUsername(String username) {
-        return BeanMapper.map(timoUserRepo.findByUsername(username), TimoUserPojo.class);
+    public TimoUser getUserByUsername(String username) {
+        return timoUserRepo.findByUsername(username);
     }
 
     @Override

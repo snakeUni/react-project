@@ -27,7 +27,7 @@ public interface TimoUserService {
      * @param username
      * @return
      */
-    TimoUserPojo getUserByUsername(String username);
+    TimoUser getUserByUsername(String username);
 
     /**
      * 通过用户名密码查找
