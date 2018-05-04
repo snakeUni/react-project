@@ -37,8 +37,7 @@ class Record extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
-    componentWillMount() {
-        this._mount = true;
+    componentDidMount() {
         let result = TimoApi.getDayRecord({params: {userId: 1}});
         let dataSource = [];
         result.then((data) => {
@@ -54,13 +53,8 @@ class Record extends Component {
                     other: item.other
                 }                
             })
-            if(this._mount) {
-                this.setState({dataSource: dataSource});
-            }
+            this.setState({dataSource: dataSource});
         })  
-    }
-    componentWillUnmount() {
-        this._mount = false;
     }
     handleChange(currentpage) {
     }

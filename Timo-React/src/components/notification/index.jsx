@@ -14,10 +14,13 @@ class Notification extends Component {
     }
     componentDidMount() {
         let delay = this.props.delay;
-        let timeout = setTimeout(this.fadeOut, delay);
+         this.timeout = setTimeout(this.fadeOut, delay);
     }
     fadeOut() {
         this.setState({isShow: false});
+    }
+    componentWillUnmount() {
+        clearTimeout(this.timeout);
     }
     render() {
         return (
