@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TimoTable from '../../../components/table/index'
 import TimoPagination from '../../../components/pagination/index'
+import Loading from '../../../components/loading/loading'
 import TimoApi from '../../../api/api'
 import './index.css'
 
@@ -33,7 +34,8 @@ class Record extends Component {
                 dataIndex: 'other',
                 key: 'other'
             }],
-            dataSource: []
+            dataSource: [],
+            loading: true
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -53,7 +55,7 @@ class Record extends Component {
                     other: item.other
                 }                
             })
-            this.setState({dataSource: dataSource});
+            this.setState({dataSource: dataSource, loading: false});
         })  
     }
     handleChange(currentpage) {
@@ -61,10 +63,13 @@ class Record extends Component {
     render() {
         return (
             <div className="record">
-                <TimoTable columns={this.state.columns} dataSource={this.state.dataSource}/>
-                <div className="record-pagination">
-                    <TimoPagination total={50} visibilityPages={10} onChange={this.handleChange} />
-                </div>    
+                {this.state.loading ? <Loading />  : 
+                <div>
+                    <TimoTable columns={this.state.columns} dataSource={this.state.dataSource}/>
+                    <div className="record-pagination">
+                        <TimoPagination total={50} visibilityPages={10} onChange={this.handleChange} />
+                    </div> 
+                </div>}
             </div>
         )
     }
