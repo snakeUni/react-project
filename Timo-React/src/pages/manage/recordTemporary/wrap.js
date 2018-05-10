@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import TimoApi from '../../../api/api'
 
 /**
  * @param {WrappedComponent} 包裹组件

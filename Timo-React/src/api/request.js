@@ -19,7 +19,7 @@ import config from '../config/evconfig'
 export default class TimoServer {
     axios(method, url, params) {
         return new Promise((resolve, reject) => {
-            if(typeof params != 'object') params = {};
+            if(typeof params !== 'object') params = {};
             let option = params;
             option = {
                 method,

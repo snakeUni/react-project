@@ -63,7 +63,7 @@ class TimoPagination extends Component {
     handleFirstPage(first) {
         let liststr = this.state.lists.toString();
         let arraystr = this.array.toString();
-        if(liststr == arraystr) {
+        if(liststr === arraystr) {
             this.setState({selected: first});
         } else {
             this.setState({selected: first, lists:this.array});
@@ -75,7 +75,7 @@ class TimoPagination extends Component {
     handleLastPage(last) {
         let liststr = this.state.lists.toString();
         let arraystr = this.lastArray.toString();
-        if(liststr == arraystr) {
+        if(liststr === arraystr) {
             this.setState({selected: last});
         } else {
             this.setState({selected: last, lists:this.lastArray});
@@ -92,7 +92,7 @@ class TimoPagination extends Component {
                     <li className="timo-pagination-item" id="first" onClick={this.handleFirstPage.bind(this, 1)}><a>首页</a></li>
                     {/* <li className="timo-pagination-item" id="pre" onClick={this.handlePre.bind(this)}><a>&lt;</a></li> */}
                     {this.state.lists.map((item, index) => {
-                        return  <li className={`timo-pagination-item ${this.state.selected == item ? 'selected': ''}`} key={index} onClick={this.handleClick.bind(this, item)}>
+                        return  <li className={`timo-pagination-item ${this.state.selected === item ? 'selected': ''}`} key={index} onClick={this.handleClick.bind(this, item)}>
                                     <a>{item}</a>
                                 </li>
                     })}

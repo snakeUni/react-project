@@ -4,7 +4,6 @@ import TimoPagination from '../../../components/pagination/index'
 import Loading from '../../../components/loading/loading'
 import TimoApi from '../../../api/api'
 import './index.css'
-import WrapLoadData from '../recordTemporary/wrap'
 
 class Record extends Component {
     constructor(props) {

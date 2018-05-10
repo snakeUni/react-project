@@ -1,9 +1,6 @@
 import  React, { Component } from 'react'
 
 class WrapImage extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const item = this.props.item;
         return (

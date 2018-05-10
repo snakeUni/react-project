@@ -1,10 +1,6 @@
 import TimoServer from './request'
 
 class TimoApi extends TimoServer {
-    constructor(props) {
-        super(props);
-    }
-
     /**
      * 获取用户信息api
      * @param {*} params 
