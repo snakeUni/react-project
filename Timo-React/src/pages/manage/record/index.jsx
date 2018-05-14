@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import TimoTable from '../../../components/table/index'
 import TimoPagination from '../../../components/pagination/index'
 import Loading from '../../../components/loading/loading'
@@ -61,6 +62,10 @@ class Record extends Component {
     handleChange(currentpage) {
     }
     render() {
+        let data = this.props.data1;
+        let getContext = this.props.getContext;
+        getContext()
+        console.log(data)
         return (
             <div className="record">
                 {this.state.loading ? <Loading />  : 
@@ -74,5 +79,18 @@ class Record extends Component {
         )
     }
 }
-
+function getContext() {
+    console.log(222);
+}
+function mapDispatchToProps() {
+    return {
+        getContext: getContext
+    }
+}
+Record = connect((state) => {
+    console.log(state)
+    return {
+        data1: state
+    }
+}, mapDispatchToProps)(Record)
 export default Record
