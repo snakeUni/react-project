@@ -57,15 +57,13 @@ class Record extends Component {
                 }                
             })
             this.setState({dataSource: dataSource, loading: false});
-        })  
+        }) 
+        let getContext = this.props.getContext;
+        console.log(getContext())
     }
     handleChange(currentpage) {
     }
     render() {
-        let data = this.props.data1;
-        let getContext = this.props.getContext;
-        getContext()
-        console.log(data)
         return (
             <div className="record">
                 {this.state.loading ? <Loading />  : 
@@ -79,12 +77,9 @@ class Record extends Component {
         )
     }
 }
-function getContext() {
-    console.log(222);
-}
-function mapDispatchToProps() {
+function mapDispatchToProps(dispatch, ownProps) {
     return {
-        getContext: getContext
+        getContext: () => {dispatch({type: 'ADD_RECORD', startStar: 3, sleep: 100})}
     }
 }
 Record = connect((state) => {
